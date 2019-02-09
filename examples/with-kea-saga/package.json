@@ -7,6 +7,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "axios": "0.18.0",
+    "isomorphic-unfetch": "3.0.0",
     "kea": "^0.28.4",
     "kea-saga": "0.3.5",
     "next": "latest",
