@@ -10,8 +10,8 @@ class Homepage extends React.Component {
   }
 
   componentDidMount () {
-    const { actions } = this.props
-    actions.loadData()
+    const { loadData } = this.actions
+    loadData()
   }
 
   render () {
@@ -84,6 +84,7 @@ export default kea({
   }),
   workers: {
     loadDataSaga: function * (action) {
+      console.log('Saga fired')
       const { loadDataSuccess, loadDataFail } = this.actions
       try {
         const { data } = yield call(
