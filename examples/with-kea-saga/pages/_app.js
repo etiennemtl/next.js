@@ -28,5 +28,5 @@ class MyApp extends App {
 
 export default compose(
   withRedux(configureStore, { debug: process.env.NODE_ENV === 'development' }),
-  withReduxSaga({ async: false })
+  withReduxSaga({ async: true })
 )(MyApp)
