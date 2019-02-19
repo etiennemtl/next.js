@@ -27,11 +27,7 @@ export const configureStore = (initialState = {}) => {
   )
   const store = finalCreateStore(reducers, initialState)
 
-  store.runSagaTask = () => {
-    store.sagaTask = sagaMiddleware.run(keaSaga)
-  }
-
-  store.runSagaTask()
+  store.sagaTask = sagaMiddleware.run(keaSaga)
 
   return store
 }

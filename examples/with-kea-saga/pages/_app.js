@@ -8,9 +8,12 @@ import { configureStore } from '../store'
 
 class MyApp extends App {
   static async getInitialProps ({ Component, ctx }) {
-    const pageProps = Component.getInitialProps
-      ? await Component.getInitialProps(ctx)
-      : {}
+    let pageProps = {}
+
+    if (Component.getInitialProps) {
+      pageProps = await Component.getInitialProps(ctx)
+    }
+
     return { pageProps }
   }
 
@@ -28,5 +31,5 @@ class MyApp extends App {
 
 export default compose(
   withRedux(configureStore, { debug: process.env.NODE_ENV === 'development' }),
-  withReduxSaga({ async: true })
+  withReduxSaga
 )(MyApp)
